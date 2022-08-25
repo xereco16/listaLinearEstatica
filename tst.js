@@ -9,6 +9,9 @@ const {
 
 
 
-let lista = ['cadu', 'M', 0, 74.6]
+let lista = {}
 
-console.log(findElement(lista, 4))
+lista.pessoa1=['cadu', 'M', 0, 74.6]
+lista.pessoa2=['bia', 'F', 16, 50]
+
+console.log(findElement(lista.pessoa2, 4))
