@@ -12,7 +12,7 @@ const {
 
 let lista = []
 
-createList(lista, 3)
+createList(lista, 10)
 
 let soma = 0
 let cont = 0

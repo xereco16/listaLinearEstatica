@@ -8,12 +8,13 @@ const {
 } = require('./utils/utils');
 
 
+
 let lista = []
 
-createList(lista,3)
+createList(lista,10)
 
 console.log(lista)
 
-removeElement(lista, 1)
+console.log(removeElement(lista, 5))
 
-console.log(lista)
+console.log(insertNewElement(lista, 5))

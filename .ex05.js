@@ -11,10 +11,10 @@ const {
 
 let lista = []
 
-createList(lista,3)
+createList(lista, 10)
 
 console.log(lista)
 
-console.log(removeElement(lista, 2))
+removeElement(lista, 10)
 
-console.log(insertNewElement(lista, 2))
+console.log(lista)

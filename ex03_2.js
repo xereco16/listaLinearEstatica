@@ -13,7 +13,7 @@ const {
 
 let lista = []
 
-createList(lista, 3)
+createList(lista, 10)
 
 let maior = []
 let menor = []

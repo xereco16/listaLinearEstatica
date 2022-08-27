@@ -13,7 +13,7 @@ const {
 
 let lista = []
 
-createList(lista, 3)
+createList(lista, 10)
 
 console.log("Remover alguem da lista por uma informação: \na) Pelo nome\nb) Pelo sexo\nc) Pela idade \nd) Pelo peso")
 let esc = String(ler("Qual sua escolha?"))

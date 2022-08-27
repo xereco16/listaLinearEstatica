@@ -11,8 +11,8 @@ const {
 
 let lista = []
 
-createList(lista, 3)
+createList(lista, 10)
 
-console.log(removeElement(lista, 3))
+console.log(removeElement(lista, 10))
 
-console.log(insertNewElement(lista,3))
+console.log(insertNewElement(lista,10))

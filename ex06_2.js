@@ -12,7 +12,7 @@ const {
 
 let lista = []
 
-createList(lista, 3)
+createList(lista, 10)
 
 let maior = 0
 let nomeMai
