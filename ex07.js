@@ -4,24 +4,21 @@ const {
     findLastIndex,
     insertNewElement,
     removeElement,
-    findElement
+    findElement,
+    createList
 } = require('./utils/utils');
 
 
 
 let lista = []
 
-for (let index = 0; index < 5; index++) {
-    let nome = String(ler(`Digite seu nome: `));
-    lista.push(nome)
-    let idade = Number(ler(`Digite sua idade: `));
-    lista.push(idade)
-}
+createList(lista, 3)
 
 console.log(lista)
+
 
 let posição = Number(ler(`Digite a posição que deseja mostrar o valor: `))
 
 let result = findElement(lista, posição)
 
-console.log(`Na posição ${posição} tem o valor ${result}`)
+console.log(`A pessoa selacionada tem os seguintes atributos: ${result}`)

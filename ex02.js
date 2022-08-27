@@ -4,21 +4,15 @@ const {
     findLastIndex,
     insertNewElement,
     removeElement,
-    insertElemntInEnd   
+    insertElemntInEnd,   
+    createList
 } = require('./utils/utils');
 
 
 let lista = []
 
-for (let index = 0; index < 5; index++) {
-    let nome = String(ler(`Digite seu nome: `));
-    lista.push(nome)
-    let idade = Number(ler(`Digite sua idade: `));
-    lista.push(idade)
-}
+createList(lista, 3)
 
-console.log(lista)
+console.log(removeElement(lista, 3))
 
-insertElemntInEnd(lista, 'fim')
-
-console.log(lista)
+console.log(insertNewElement(lista,3))
