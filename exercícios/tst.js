@@ -5,7 +5,7 @@ const {
     insertNewElement,
     removeElement,
     findElement 
-} = require('./utils/utils');
+} = require('../utils/utils');
 
 
 let lis= []

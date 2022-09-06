@@ -14,36 +14,36 @@ let lista = []
 
 createList(lista, 10)
 
-let maior = 0
-let nomeMai
-let menor = 0
-let nomeMen
+let maior3 = 0
+let pesoMai
+let menor3 = 0
+let pesoMen
 for (let index = 0; index < lista.length; index++) {
     const pessoa = lista[index];
-    if(pessoa.peso > maior){
-        maior = pessoa.peso
+    if(pessoa.peso > maior3){
+        maior3 = pessoa.peso
     }
     for (let index = 0; index < lista.length; index++) {
         const pessoa = lista[index];
-        if(pessoa.peso === maior){
-            nomeMai = pessoa.nome
+        if(pessoa.peso === maior3){
+            pesoMai = pessoa.nome
         }
     }
-    menor = maior
+    menor3 = maior3
    for (let index = 0; index < lista.length; index++) {
     const pessoa = lista[index];
-    if(pessoa.peso<menor){
-        menor = pessoa.peso
-        nomeMen = pessoa.nome
+    if(pessoa.peso<menor3){
+        menor3 = pessoa.peso
+        pesoMen = pessoa.nome
     }
     for (let index = 0; index < lista.length; index++) {
         const pessoa = lista[index];
-        if(pessoa.peso === menor){
-            nomeMen = pessoa.nome
+        if(pessoa.peso === menor3){
+            pesoMen = pessoa.nome
         }
     }
    }
 }
 
-console.log(`A pessoa mais pesada é: ${nomeMai} que tem ${maior}Kg`)
-console.log(`A pessoa mais leve é: ${nomeMen} que tem ${menor}kg`)
+console.log(`A pessoa mais pesada é: ${pesoMai} que tem ${maior3}Kg`)
+console.log(`A pessoa mais leve é: ${pesoMen} que tem ${menor3}kg`)

@@ -15,6 +15,3 @@ createList(lista, 10)
 
 console.log(lista)
 
-removeElement(lista, 10)
-
-console.log(lista)
