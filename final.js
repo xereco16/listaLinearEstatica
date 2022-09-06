@@ -12,7 +12,7 @@ const {
     endWhile  
 } = require('./utils/utils');
 
-let lista = [0,1,2]
+let lista = [0,0,0]
 
 while(endWhile()){
     switch (menu(lista)) {
