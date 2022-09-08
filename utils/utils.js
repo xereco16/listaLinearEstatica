@@ -35,6 +35,8 @@ function findLastIndex (lista){
     }
     return lastElementIndex
 }
+
+
 /**
  * Remover um valor de uma lista
  * @param {Array} lista Array que deseja remover um valor
@@ -46,8 +48,15 @@ function findLastIndex (lista){
 
     let indiceRemocao = indice - 1
 
-    for (let index = indiceRemocao; index < ultPos; index++) {
-        lista[index] = lista[index+1]
+
+    if(lista.length == indice){
+        console.log("entrei no if")
+        lista[indice-1]=0
+    }else{
+        console.log("entrei no else")
+        for (let index = indiceRemocao; index < ultPos; index++) {
+            lista[index] = lista[index+1]
+        }
     }
     lista[ultPos] = 0
     return lista
@@ -203,7 +212,7 @@ if(!elementoEcn){
 }
 
 function menu(lista){
-    console.log("Oque deseja fazer com a lista?\n1. Inserção de um elemento no início da lista.\n2. Inserção de um elemento ao final da lista.\n3. Inserção de um elemento em uma posição entre outros elementos já existentes.\n4. Remoção de um elemento no início da lista.\n5. Remoção de um elemento ao final da lista.\n6. Remoção de um elemento no meio da lista.\n7. Acessar um elemento através da sua posição.\n8. Acessar um elemento através de uma propriedade.")
+    console.log("\nOque deseja fazer com a lista?\n0. Mostrar a lista\n1. Inserção de um elemento no início da lista.\n2. Inserção de um elemento ao final da lista.\n3. Inserção de um elemento em uma posição entre outros elementos já existentes.\n4. Remoção de um elemento no início da lista.\n5. Remoção de um elemento ao final da lista.\n6. Remoção de um elemento no meio da lista.\n7. Acessar um elemento através da sua posição.\n8. Acessar um elemento através de uma propriedade.\n")
 
     let escolha = Number(ler("Qual opção deseja? "))
     if(escolha == 3){
@@ -211,6 +220,24 @@ function menu(lista){
         let resultado = insertNewElement(lista, nvInd)
         console.log(lista)
         return resultado
+    }else if(escolha == 6){
+        let zero2 = 0
+        for (let index = 0; index < lista.length; index++) {
+            const elemento = lista[index]
+            if(elemento ==0){
+                zero2 += 1  
+            }else if(elemento !== 0){
+                zero2 -= 1
+            }
+        }
+        if (zero2 === lista.length) {
+            return console.log("Não é possivel remover um elemento de uma lista zerada!")
+        }else{
+            let rmv = Number(ler(`Qual a posiçao que você deseja inserir o novo índice (entre 2 e ${lista.length-1})?`))
+            console.log(rmv)
+            return console.log(removeElement(lista, rmv))
+
+        }
     }else if(escolha == 7){
         let pos = ler("Qual posição deseja acahar um elemento: ")
         return pos
@@ -234,6 +261,7 @@ function endWhile(){
             cnt = cnt.toUpperCase()
             if(cnt == "Y"){
                 parada = false
+                return true
             }else if (cnt == "N"){
                 parada = false
             }
