@@ -50,10 +50,8 @@ function findLastIndex (lista){
 
 
     if(lista.length == indice){
-        console.log("entrei no if")
         lista[indice-1]=0
     }else{
-        console.log("entrei no else")
         for (let index = indiceRemocao; index < ultPos; index++) {
             lista[index] = lista[index+1]
         }
@@ -116,16 +114,18 @@ function insertNewElement (lista, pos){
  * @returns Retorna o conteudo do índice
  */
 function findElement (lista, pos){
-    if(pos > lista.length){
+    let ach 
+    if(pos > lista.length){   
         return console.log("Posição inválida")
     }else{
 
         for (let index = 0; index < lista.length; index++) {
             if (pos == index + 1) {
-                if(lista[index] == 0){
-                    return console.log("Não existem elementos nessa posição")
+                if(lista[index] == 0){               
+                    console.log("Não existem elementos nessa posição")
                 }else{
-                    return JSON.stringify(lista[index])
+                    ach = JSON.stringify(lista[index])
+                    console.log(`A pessoa selacionada tem os seguintes atributos: ${ach}`)
                 }   
             }
         }
@@ -144,69 +144,69 @@ function insertElemntInEnd(lista,elm){
 }
 
 function findByProperty(lista) {
-console.log("Acessar a lista por uma informação: \na) Pelo nome\nb) Pelo sexo\nc) Pela idade \nd) Pelo peso")
-let esc = String(ler("Qual sua escolha?"))
-let achpos
-let elementoEcn = false
+    console.log("Acessar a lista por uma informação: \na) Pelo nome\nb) Pelo sexo\nc) Pela idade \nd) Pelo peso")
+    let esc = String(ler("Qual sua escolha?"))
+    let achpos
+    let elementoEcn = false
 
-switch (esc) {
-    case "a":
-        achpos = ler("Qual nome deseja encontrar")
-        for (let index = 0; index < lista.length; index++) {
-            const pessoa = lista[index]
-            if(pessoa.nome === achpos){
-                /*return*/ console.log(`A pessoa encontrada na posicão ${index+1}`)
-                console.log(pessoa)
-                return lista[index]
-                elementoEcn = true
-            }  
-        }
-        break;
-    case "b":
-        achpos = ler("Qual sexo deseja encontrar")
-        achpos = achpos.toUpperCase();
-        for (let index = 0; index < lista.length; index++) {
-            const pessoa = lista[index];
-            if (pessoa.sexo === achpos ) {
-                /*return*/ console.log(`A pessoa encontrada na posicão ${index+1}`)
-                console.log(pessoa)
-                return lista[index]
-                elementoEcn = true
+    switch (esc) {
+        case "a":
+            achpos = ler("Qual nome deseja encontrar: ")
+            for (let index = 0; index < lista.length; index++) {
+                const pessoa = lista[index]
+                if(pessoa.nome === achpos){
+                    /*return*/ console.log(`A pessoa encontrada na posicão ${index+1}`)
+                    console.log(pessoa)
+                    return lista[index]
+                    elementoEcn = true
+                }  
             }
-        }
-        break;
-    case "c":
-        achpos = ler("Qual idade deseja encontrar")
-        for (let index = 0; index < lista.length; index++) {
-            const pessoa = lista[index];
-            if (pessoa.idade === achpos) {
-                /*return*/ console.log(`A pessoa encontrada na posicão ${index+1}`)
-                console.log(pessoa)
-                return lista[index]
-                elementoEcn = true
+            break;
+        case "b":
+            achpos = ler("Qual sexo deseja encontrar: ")
+            achpos = achpos.toUpperCase();
+            for (let index = 0; index < lista.length; index++) {
+                const pessoa = lista[index];
+                if (pessoa.sexo === achpos ) {
+                    /*return*/ console.log(`A pessoa encontrada na posicão ${index+1}`)
+                    console.log(pessoa)
+                    return lista[index]
+                    elementoEcn = true
+                }
             }
-        }
-        break;
-    case "d":
-        achpos = ler("Qual peso deseja encontrar")
-        for (let index = 0; index < lista.length; index++) {
-            const pessoa = lista[index];
-            if (pessoa.peso === achpos) {
-                /*return*/ console.log(`A pessoa encontrada na posicão ${index+1}`)
-                console.log(pessoa)
-                return lista[index]
-                elementoEcn = true
+            break;
+        case "c":
+            achpos = ler("Qual idade deseja encontrar: ")
+            for (let index = 0; index < lista.length; index++) {
+                const pessoa = lista[index];
+                if (pessoa.idade === achpos) {
+                    /*return*/ console.log(`A pessoa encontrada na posicão ${index+1}`)
+                    console.log(pessoa)
+                    return lista[index]
+                    elementoEcn = true
+                }
             }
-        }
-        break;
-    default:
-        console.log("Não contrei esse valor")
-        break;
-}
+            break;
+        case "d":
+            achpos = ler("Qual peso deseja encontrar: ")
+            for (let index = 0; index < lista.length; index++) {
+                const pessoa = lista[index];
+                if (pessoa.peso === achpos) {
+                    /*return*/ console.log(`A pessoa encontrada na posicão ${index+1}`)
+                    console.log(pessoa)
+                    return lista[index]
+                    elementoEcn = true
+                }
+            }
+            break;
+        default:
+            console.log("Não contrei esse valor")
+            break;
+    }
 
-if(!elementoEcn){
-    console.log("Nenhuma pessoa encontrada na busca");
-}
+    if(!elementoEcn){
+        console.log("Nenhuma pessoa encontrada na busca");
+    }
 
 
 }
@@ -239,12 +239,10 @@ function menu(lista){
 
         }
     }else if(escolha == 7){
-        let pos = ler("Qual posição deseja acahar um elemento: ")
-        return pos
+        let posição = Number(ler(`Digite a posição que deseja mostrar o valor: `))
+        findElement(lista, posição)
     }else if (escolha == 8){
-        console.log("Acessar a lista por uma informação: \na) Pelo nome\nb) Pelo sexo\nc) Pela idade \nd) Pelo peso")
-        let esc = String(ler("Qual sua escolha?"))
-        return esc
+        findByProperty(lista)
     }else{
         return escolha
     }

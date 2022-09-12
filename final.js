@@ -61,8 +61,6 @@ while(endWhile()){
                 console.log(removeElement(lista, 3))
             }
             break;
-        case 6:
-            break;
         default:
             break;
     }
