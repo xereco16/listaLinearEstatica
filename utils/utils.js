@@ -72,7 +72,8 @@ function insertNewElement (lista, pos){
     for (let index = 0; index < 1; index++) {
     
         pessoa.nome = ler("Digite o nome da nova pessoa: ")
-        pessoa.sexo = ler("Digite o sexo da nova pessoa: ")
+        sx = ler("Digite o sexo da nova pessoa: ")
+        pessoa.sexo = sx.toUpperCase()
         pessoa.idade = Number(ler("Digite a idade da nova pessoa: "))
         pessoa.peso = Number(ler("Digite o peso da nova pessoa: "))
         console.log(`Nova pessoa adiconada!`)
@@ -97,10 +98,6 @@ function insertNewElement (lista, pos){
             lista[index+1] = lista[index]
         }
         lista[indexNewElement] = pessoa
-    }
-    let tamanho = (lista.length)
-    if(tamanho>3){
-        lista.pop()
     }
     return lista
 }
@@ -212,14 +209,18 @@ function findByProperty(lista) {
 }
 
 function menu(lista){
-    console.log("\nOque deseja fazer com a lista?\n0. Mostrar a lista\n1. Inserção de um elemento no início da lista.\n2. Inserção de um elemento ao final da lista.\n3. Inserção de um elemento em uma posição entre outros elementos já existentes.\n4. Remoção de um elemento no início da lista.\n5. Remoção de um elemento ao final da lista.\n6. Remoção de um elemento no meio da lista.\n7. Acessar um elemento através da sua posição.\n8. Acessar um elemento através de uma propriedade.\n")
+    console.log("\nOque deseja fazer com a lista?\n0. Mostrar a lista\n1. Inserção de um elemento no início da lista.\n2. Inserção de um elemento ao final da lista.\n3. Inserção de um elemento em uma posição entre outros elementos já existentes.\n4. Remoção de um elemento no início da lista.\n5. Remoção de um elemento ao final da lista.\n6. Remoção de um elemento no meio da lista.\n7. Acessar um elemento através da sua posição.\n8. Acessar um elemento através de uma propriedade.\n9. Remova todos os elementos com base na propriedade fornecida pelo usuárioa.\n10. Mostre quantas pessoas são de cada sexo e seus nomes.\n11. Mostre quantas pessoas possuem 18 anos ou mais e quantas possuem menos.\n12. Mostre qual a soma total das idades.\n13. Mostre qual a média de idade.\n14. Mostre qual a pessoa mais jovem e qual a pessoa mais idosa.\n15. Mostre qual a soma total dos pesos.\n16. Mostre qual a pessoa mais leve e a pessoa mais pesada.\n17. Mostre qual a média de peso.")
 
     let escolha = Number(ler("Qual opção deseja? "))
     if(escolha == 3){
-        let nvInd = Number(ler(`Qual a posiçao que você deseja inserir o novo índice (entre 2 e ${lista.length-1})?`))
-        let resultado = insertNewElement(lista, nvInd)
-        console.log(lista)
-        return resultado
+        let ult = findLastIndex(lista)
+        if (ult == lista.length-1){
+            console.log("lista cheia nao pode adicionar mais")
+        }else{
+            let nvInd = Number(ler(`Qual a posiçao que você deseja inserir o novo índice?`))
+            let resultado = insertNewElement(lista, nvInd)
+            console.log(lista)
+        }
     }else if(escolha == 6){
         let zero2 = 0
         for (let index = 0; index < lista.length; index++) {
@@ -243,6 +244,23 @@ function menu(lista){
         findElement(lista, posição)
     }else if (escolha == 8){
         findByProperty(lista)
+    }else if(escolha == 10){
+        let masc = []
+        let fem = []
+        for (let index = 0; index < lista.length; index++) {
+            const pessoa = lista[index];
+
+            if (pessoa.sexo === "M") {
+                masc.push(pessoa.nome)
+            }else if(pessoa.sexo === "F"){
+                fem.push(pessoa.nome)
+            }
+        }
+        console.log("pessoas do sexo masculino: ")
+        console.log(masc)
+        console.log("pessoas do sexo feminino: ")
+        console.log(fem)
+
     }else{
         return escolha
     }
